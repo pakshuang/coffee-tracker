@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}{{ vial.name }}{% endblock %}
+
+{% block content %}
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h2 class="card-title">{{ vial.name }}</h2>
+        <h6 class="card-subtitle mb-2 text-muted">{{ vial.roaster }}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">{{ vial.brew_method }}</h6>
+        <br>
+        <p class="card-text">{{ vial.origin }}</p>
+        <p class="card-text">{{ vial.tasting_notes }}</p>
+    </div>
+</div>
+<br>
+<h2>Stock:</h2>
+<ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Number of Vials
+        <span class="badge bg-primary rounded-pill">{{ vial.vials }}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Weight per Vial
+        <span class="badge bg-primary rounded-pill">{{ vial.grams_per_vial }}g</span>
+    </li>
+</ul>
+<br>
+<h2>Brewing Notes:</h2>
+<pre>{{ vial.notes }}</pre>
+
+{% if vial.vials > 0 %}
+<button type="button" class="btn btn-success"><a href="{{ url_for('consume_vial', coffee_id=vial.id) }}" class="text-decoration-none">Consume Vial</a></button>
+{% endif %}
+<button type="button" class="btn btn-outline-primary"><a href="{{ url_for('edit_vial', coffee_id=vial.id) }}" class="text-decoration-none">Edit Vial</a></button>
+{% endblock %}

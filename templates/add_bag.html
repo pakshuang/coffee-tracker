@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Add Bag{% endblock %}
+
+{% block content %}
+<h1>Add Bag to Inventory</h1>
+<form method="POST">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required><br>
+    </div>
+    <fieldset class="form-group">
+        <label for="brew_method">Brew Method:</label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="expresso" name="brew_method" value="Expresso" required>
+            <label class="form-check-label" for="expresso">Expresso</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="filter" name="brew_method" value="Filter">
+            <label class="form-check-label" for="filter">Filter</label>
+        </div>
+    </fieldset>
+    <div class="form-group">
+        <label for="roaster">Roaster:</label>
+        <input type="text" name="roaster" required><br>
+    </div>
+    <div class="form-group">
+        <label for="origin">Origin:</label>
+        <input type="text" name="origin" required><br>
+    </div>
+    <div class="form-group">
+        <label for="grams">Weight (grams):</label>
+        <input type="number" name="grams" required><br>
+    </div>
+    <div class="form-group">
+        <label for="target_freeze_date">Target Freeze Date:</label>
+        <input type="date" name="target_freeze_date" required><br>
+    </div>
+    <div class="form-group">
+        <label for="Tasting Notes" class="form-label mt-4">Tasting Notes:</label>
+        <textarea class="form-control" name="tasting_notes"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="notes" class="form-label mt-4">Brewing Notes:</label>
+        <textarea class="form-control" name="notes"></textarea>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-success">Add Bag</button>
+    <input type="reset" class="btn btn-warning">
+</form>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Freeze Bag{% endblock %}
+
+{% block content %}
+<h1>Freeze Bag</h1>
+<h2>{{ bag.name }}</h2>
+<form method="POST">
+    <div class="form-group">
+        <label for="vials">Number of Vials:</label>
+        <input type="number" class="form-control" name="vials" required>
+    </div>
+    <div class="form-group">
+        <label for="grams_per_vial">Weight per Vial (grams):</label>
+        <input type="number" class="form-control" name="grams_per_vial" required>
+    </div>
+    <div class="form-group">
+        <label for="actual_freeze_date">Actual Freeze Date:</label>
+        <input type="date" class="form-control" name="actual_freeze_date" required>
+    </div>
+    <button type="submit" class="btn btn-success">Freeze Bag</button>
+    <input type="reset" class="btn btn-secondary">
+</form>
+{% endblock %}

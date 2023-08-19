@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}{{ bag.name }}{% endblock %}
+
+{% block content %}
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h2 class="card-title">{{ bag.name }}</h2>
+        <h6 class="card-subtitle mb-2 text-muted">{{ bag.roaster }}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">{{ bag.brew_method }}</h6>
+        <br>
+        <p class="card-text">{{ bag.origin }}</p>
+        <p class="card-text">{{ bag.tasting_notes }}</p>
+    </div>
+</div>
+<br>
+<h2>Bag Details:</h2>
+<ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Weight
+        <span class="badge bg-primary rounded-pill">{{ bag.grams }}g</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Target Freeze Date
+        <span class="badge bg-primary rounded-pill">{{ bag.target_freeze_date }}</span>
+    </li>
+</ul>
+<br>
+<h2>Brewing Notes:</h2>
+<pre>{{ bag.notes }}</pre>
+
+<button type="button" class="btn btn-success"><a href="{{ url_for('freeze_bag', coffee_id=bag.id) }}"
+        class="text-decoration-none">Freeze Bag</a></button>
+<button type="button" class="btn btn-outline-primary"><a href="{{ url_for('edit_bag', coffee_id=bag.id) }}"
+        class="text-decoration-none">Edit Bag</a></button>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Bag{% endblock %}
+
+{% block content %}
+<h1>Edit Bag</h1>
+<form method="POST">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" name="name" value="{{ bag.name }}" required><br>
+    </div>
+    <fieldset class="form-group">
+        <label for="brew_method">Brew Method:</label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="expresso" name="brew_method" value="Expresso" {% if
+                bag.brew_method=="Expresso" %}checked{% endif %} required>
+            <label class="form-check-label" for="expresso">Expresso</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="filter" name="brew_method" value="Filter" {% if
+                bag.brew_method=="Filter" %}checked{% endif %}>
+            <label class="form-check-label" for="filter">Filter</label>
+        </div>
+    </fieldset>
+    <div class="form-group">
+        <label for="roaster">Roaster:</label>
+        <input type="text" name="roaster" value="{{ bag.roaster }}" required><br>
+    </div>
+    <div class="form-group">
+        <label for="origin">Origin:</label>
+        <input type="text" name="origin" value="{{ bag.origin }}" required><br>
+    </div>
+    <div class="form-group">
+        <label for="grams">Weight (grams):</label>
+        <input type="number" name="grams" value="{{ bag.grams }}" required><br>
+    </div>
+    <div class="form-group">
+        <label for="target_freeze_date">Target Freeze Date:</label>
+        <input type="date" name="target_freeze_date" value="{{ bag.target_freeze_date }}" required><br>
+    </div>
+    <div class="form-group">
+        <label for="Tasting Notes" class="form-label mt-4">Tasting Notes:</label>
+        <textarea class="form-control" name="tasting_notes" value="{{ bag.tasting_notes }}"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="notes" class="form-label mt-4">Brewing Notes:</label>
+        <textarea class="form-control" name="notes" value="{{ bag.notes }}"></textarea>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-success">Save</button>
+    <input type="reset" class="btn btn-secondary">
+</form>
+<br>
+<button type="button" class="btn btn-danger"><a href="{{ url_for('delete_bag', coffee_id=bag.id) }}"
+        class="text-decoration-none">Delete
+        Bag</a></button>
+{% endblock %}

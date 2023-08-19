@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>{{ website_name }}</h1>
+<h2>Bags</h2>
+<table class="table table-striped mw-100">
+    <thead>
+        <tr class="table-dark">
+            <th>Brew Method</th>
+            <th>Name</th>
+            <th>Roaster</th>
+            <th>Origin</th>
+            <th>Tasting Notes</th>
+            <th>Weight</th>
+            <th>Target Freeze Date</th>
+            <th>More</th>
+        </tr>
+    </thead>
+    </tbody>
+    {% for bag in coffee_bags %}
+    <tr>
+        <td>{{ bag.brew_method }}</td>
+        <td>{{ bag.name }}</td>
+        <td>{{ bag.roaster }}</td>
+        <td>{{ bag.origin }}</td>
+        <td>{{ bag.tasting_notes }}</td>
+        <td>{{ bag.grams }}g</td>
+        <td>{{ bag.target_freeze_date }}</td>
+        <td>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-info btn-sm"><a href="{{ url_for('view_bag', coffee_id=bag.id) }}"
+                        class="text-decoration-none">View</a></button>
+                <div class="btn-group" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn btn-info dropdown-toggle"
+                        data-bs-toggle="dropdown"></button>
+                    <div class="dropdown-menu">
+                        <a href="{{ url_for('edit_bag', coffee_id=bag.id) }}" class="text-decoration-none">Edit</a><br>
+                        <a href="{{ url_for('freeze_bag', coffee_id=bag.id) }}" class="text-decoration-none">Freeze</a>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<h2>Frozen Vials</h2>
+<table class="table table-striped mw-100">
+    <thead>
+        <tr class="table-dark">
+            <th>Brew Method</th>
+            <th>Name</th>
+            <th>Roaster</th>
+            <th>Origin</th>
+            <th>Tasting Notes</th>
+            <th>Vials</th>
+            <th>More</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for vial in coffee_vials %}
+        <tr>
+            <td>{{ vial.brew_method }}</td>
+            <td>{{ vial.name }}</td>
+            <td>{{ vial.roaster }}</td>
+            <td>{{ vial.origin }}</td>
+            <td>{{ vial.tasting_notes }}</td>
+            <td>{{ vial.vials }}</td>
+            <td>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-info btn-sm"><a
+                            href="{{ url_for('view_vial', coffee_id=vial.id) }}"
+                            class="text-decoration-none">View</a></button>
+                    <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-info dropdown-toggle"
+                            data-bs-toggle="dropdown"></button>
+                        <div class="dropdown-menu">
+                            <a href="{{ url_for('edit_vial', coffee_id=vial.id) }}"
+                                class="text-decoration-none">Edit</a><br>
+                            <a href="{{ url_for('consume_vial', coffee_id=vial.id) }}"
+                                class="text-decoration-none">Consume</a>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h2>Past Vials</h2>
+<table class="table table-striped mw-100">
+    <thead>
+        <tr class="table-dark">
+            <th>Brew Method</th>
+            <th>Name</th>
+            <th>Roaster</th>
+            <th>Origin</th>
+            <th>Tasting Notes</th>
+            <th>More</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for vial in past_vials %}
+        <tr>
+            <td>{{ vial.brew_method }}</td>
+            <td>{{ vial.name }}</td>
+            <td>{{ vial.roaster }}</td>
+            <td>{{ vial.origin }}</td>
+            <td>{{ vial.tasting_notes }}</td>
+            <td>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-info btn-sm"><a
+                            href="{{ url_for('view_vial', coffee_id=vial.id) }}"
+                            class="text-decoration-none">View</a></button>
+                    <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-info dropdown-toggle"
+                            data-bs-toggle="dropdown"></button>
+                        <div class="dropdown-menu">
+                            <a href="{{ url_for('edit_vial', coffee_id=vial.id) }}"
+                                class="text-decoration-none">Edit</a><br>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
