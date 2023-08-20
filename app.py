@@ -1,13 +1,11 @@
 from datetime import datetime
 import os
 
-from dotenv import load_dotenv
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_bootstrap import Bootstrap5
 from flask_sqlalchemy import SQLAlchemy
 
 
-load_dotenv()
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.sqlite"
 db = SQLAlchemy(app)
