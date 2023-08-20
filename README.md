@@ -21,6 +21,8 @@ Coffee Inventory Tracker is a web application for keeping track of one's coffee 
 
 ## Installation
 
+Note: This was developed to run within a local network, there is no authentication and it runs as a development server
+
 ### Docker Compose
 
 1. Create a folder to use as a volume that stores the database
