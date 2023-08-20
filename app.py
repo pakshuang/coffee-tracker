@@ -247,7 +247,7 @@ def consume_vial(coffee_id):
     vials_available = coffee.vials
 
     if vials_available <= 0:
-        return "No vials to consume!"
+        app.abort(404)
 
     coffee.vials -= 1
     db.session.commit()
