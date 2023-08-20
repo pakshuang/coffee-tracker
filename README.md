@@ -48,7 +48,7 @@ Pull the image then run the container:
 
 ```bash
 docker pull pakshuang/coffee-tracker
-docker run -p 5000:5000 -d coffee-tracker
+docker run -p 5000:5000 -d pakshuang/coffee-tracker
 ```
 
 Append `--env WEBSITE_NAME="Your Website Name" --env PORT=5000` to the `run` command to override the default website name and/or port
