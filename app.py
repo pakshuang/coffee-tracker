@@ -42,7 +42,7 @@ class CoffeeVials(db.Model):
 # Inject website name
 @app.context_processor
 def inject_website_name():
-    return dict(website_name=os.getenv("WEBSITE_NAME"))
+    return dict(website_name=os.getenv("WEBSITE_NAME", "Coffee Tracker"))
 
 
 @app.route("/", methods=["GET"])
@@ -257,4 +257,4 @@ def consume_vial(coffee_id):
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
-    app.run(debug=False, host="0.0.0.0", port=os.getenv("PORT"))
+    app.run(debug=False, host="0.0.0.0", port=os.getenv("PORT", 5000))
