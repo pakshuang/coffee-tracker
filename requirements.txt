@@ -24,7 +24,7 @@ python-dotenv==1.0.0
 
 sqlalchemy==2.0.20; python_version >= '3.7'
 
-typing-extensions==4.7.1; python_version >= '3.7'
+typing-extensions==4.10.0; python_version >= '3.7'
 
 werkzeug==3.0.1; python_version >= '3.8'
 
