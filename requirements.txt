@@ -1,6 +1,6 @@
 -i https://pypi.org/simple
 
-blinker==1.6.2; python_version >= '3.7'
+blinker==1.7.0; python_version >= '3.7'
 
 bootstrap-flask==2.3.0
 
