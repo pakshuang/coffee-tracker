@@ -1,0 +1,7 @@
+version: 2
+updates:
+  - package-ecosystem: "pip"  # For pipenv, specify "pip"
+    directory: "/"  # Location of the Pipfile
+    schedule:
+      interval: "weekly"  # How often to check for updates
+    open-pull-requests-limit: 10
