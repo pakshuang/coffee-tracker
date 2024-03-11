@@ -2,7 +2,7 @@
 
 blinker==1.6.2; python_version >= '3.7'
 
-bootstrap-flask==2.3.0
+bootstrap-flask==2.3.3
 
 click==8.1.7; python_version >= '3.7'
 
